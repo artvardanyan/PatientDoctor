@@ -6,12 +6,9 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.google.firebase.database.FirebaseDatabase
 import com.insta.patientdoctor.R
-import com.insta.patientdoctor.activities.DoctorRegistration.Companion.i
 import com.insta.patientdoctor.databinding.ActivityPatientRegistrationBinding
 import com.insta.patientdoctor.viewmodel.PatientViewModel
 import kotlinx.coroutines.*
@@ -27,7 +24,6 @@ class PatientRegistration : AppCompatActivity(), AdapterView.OnItemSelectedListe
         binding = ActivityPatientRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
@@ -35,7 +31,7 @@ class PatientRegistration : AppCompatActivity(), AdapterView.OnItemSelectedListe
 
         viewModel.createDataBase(this)
 
-        viewModel._listUsers.observe(this, Observer {
+        viewModel._listUsers.observe(this, {
             if (it != null) {
                 // put your logic here
             }

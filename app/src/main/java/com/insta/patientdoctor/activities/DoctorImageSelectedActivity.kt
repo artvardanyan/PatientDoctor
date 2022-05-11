@@ -22,22 +22,15 @@ import com.insta.patientdoctor.databinding.ActivityDoctorImageSelectedBinding
 import java.io.IOException
 import java.util.*
 
+const val PICK_IMAGE_REQUEST = 22
+
 class DoctorImageSelectedActivity : AppCompatActivity() {
 
-    var doc: ImageView? = null
-    var upload: Button? = null
-    var submit: android.widget.Button? = null
-    var storage: FirebaseStorage? = null
-    var storageReference: StorageReference? = null
-    var name: TextView? = null
-    var deg: TextView? = null
-    var dept: TextView? = null
-    var phone: TextView? = null
-    private val PICK_IMAGE_REQUEST = 22
-    var databaseReference: DatabaseReference? = null
-    var firebaseDatabase: FirebaseDatabase? = null
+    private var storage: FirebaseStorage? = null
+    private var storageReference: StorageReference? = null
+    private var databaseReference: DatabaseReference? = null
+    private var firebaseDatabase: FirebaseDatabase? = null
     private var filePath: Uri? = null
-    var i = 0
     private lateinit var binding: ActivityDoctorImageSelectedBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,21 +39,10 @@ class DoctorImageSelectedActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         this.title = "Doctor Profile"
-        doc = findViewById<View>(R.id.docimage) as ImageView
-        upload = findViewById<View>(R.id.upload) as Button
-        submit = findViewById<View>(R.id.submit) as Button
-        name = findViewById<View>(R.id.doctorname) as TextView
-        deg = findViewById<View>(R.id.doctordegree) as TextView
-        dept = findViewById<View>(R.id.doctordept) as TextView
-        phone = findViewById<View>(R.id.doctorphone) as TextView
 
         val bundle = intent.extras
-
         val nam = bundle!!.getString("Name")
         val degree = bundle.getString("Qualif")
-        val gen = bundle.getString("Gender")
-        val age = bundle.getString("age")
-        val add = bundle.getString("add")
         val phon = bundle.getString("phone")
         val dep = bundle.getString("dept")
 
@@ -68,37 +50,21 @@ class DoctorImageSelectedActivity : AppCompatActivity() {
         storage = FirebaseStorage.getInstance()
         storageReference = storage!!.reference
 
-//        firebaseDatabase = FirebaseDatabase.getInstance();
-//        var databaseReference: DatabaseReference =
-//            firebaseDatabase!!.getReference("Doctor_Details").child(
-//                dep.toString()
-//            ).child(doc.toString())
-//
-//        var doctorDetails: DoctorDetails =
-//            DoctorDetails(nam.toString(), degree.toString(), add.toString(), dept.toString())
-//        databaseReference.setValue(doctorDetails)
-
-
-        /*firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference("Doctor_Details").child(dep).child(doc);
-        DoctorDetails doctorDetails = new DoctorDetails(nam,degree,,a,add,ph,dept,);
-        databaseReference.setValue(doctorDetails);*/
-
         if (supportActionBar != null) {
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         }
-        name?.text = nam
-        deg?.text = degree
-        dept?.text = dep
-        phone?.text = phon
+        binding.doctorname.text = nam
+        binding.doctordegree.text = degree
+        binding.doctordept.text = dep
+        binding.doctorphone.text = phon
 
 
-        upload!!.setOnClickListener {
+        binding.upload.setOnClickListener {
             selectImage()
             uploadImage();
         }
 
-        submit?.setOnClickListener { uploadImage() }
+        binding.submit.setOnClickListener { uploadImage() }
 
     }
 
@@ -137,7 +103,7 @@ class DoctorImageSelectedActivity : AppCompatActivity() {
                         contentResolver,
                         filePath
                     )
-                doc!!.setImageBitmap(bitmap)
+                binding.docimage.setImageBitmap(bitmap)
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -147,14 +113,8 @@ class DoctorImageSelectedActivity : AppCompatActivity() {
     private fun uploadImage() {
         if (filePath != null) {
             val bundle = intent.extras
-            val nam = bundle!!.getString("Name")
-            val degree = bundle.getString("Qualif")
-            val gen = bundle.getString("Gender")
-            val age = bundle.getString("age")
-            val add = bundle.getString("add")
-            val phon = bundle.getString("phone")
-            val dep = bundle.getString("dept")
-            val no = bundle.getString("id")
+            val dep = bundle?.getString("dept")
+            val no = bundle?.getString("id")
             val progressDialog = ProgressDialog(this)
             progressDialog.setTitle("Uploading...")
             progressDialog.show()
@@ -171,8 +131,6 @@ class DoctorImageSelectedActivity : AppCompatActivity() {
                         dep!!
                     ).child(no!!)
 
-                    //String uploadid = databaseReference.push().getKey();
-                    //databaseReference.child("Doctor_Details").child(depart).child(no).setValue(doctorDetails);
                     progressDialog.dismiss()
                     Toast.makeText(
                         this@DoctorImageSelectedActivity,

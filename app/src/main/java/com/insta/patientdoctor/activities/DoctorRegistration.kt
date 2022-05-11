@@ -22,7 +22,6 @@ import kotlinx.coroutines.withContext
 
 class DoctorRegistration : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    private var firebaseDatabase: FirebaseDatabase? = null
     private lateinit var viewModel: DoctorViewModel
     private lateinit var binding: ActivityDoctorRegistrationBinding
 

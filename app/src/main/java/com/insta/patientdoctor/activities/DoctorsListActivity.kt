@@ -19,13 +19,7 @@ import java.util.*
 class DoctorsListActivity : AppCompatActivity() {
 
     var databaseReference: DatabaseReference? = null
-    var doc: String? = null
-    var deg: kotlin.String? = null
-    var photo: kotlin.String? = null
-    var number: kotlin.String? = null
     var recyclerView: RecyclerView? = null
-    var listView: ListView? = null
-    var myAdapter: MyAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +38,6 @@ class DoctorsListActivity : AppCompatActivity() {
             }
         })
 
-
         recyclerView = findViewById<View>(R.id.myrecycler) as RecyclerView
 
         recyclerView!!.layoutManager = LinearLayoutManager(this)
@@ -52,34 +45,11 @@ class DoctorsListActivity : AppCompatActivity() {
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         }
 
-
-
         val bundle = intent.extras!!
+        val prob = bundle.getString("dept")
 
-        val prob = bundle!!.getString("dept")
-        val token = bundle!!.getInt("token")
-        val name = bundle!!.getString("pname")
-        val phone = bundle!!.getString("phone")
-//        Intent i = new Intent(RecyclerView.this,PatientActivity.class);
-//        Bundle bundle1 = new Bundle();
-//        bundle1.putString("pname",name);
-//        bundle1.putString("phone",phone);
-//        i.putExtras(bundle1);
-//        startActivity(i);
-        //String tok = Integer.toString(token);
-
-        //        Intent i = new Intent(RecyclerView.this,PatientActivity.class);
-//        Bundle bundle1 = new Bundle();
-//        bundle1.putString("pname",name);
-//        bundle1.putString("phone",phone);
-//        i.putExtras(bundle1);
-//        startActivity(i);
-        //String tok = Integer.toString(token);
         databaseReference =
             FirebaseDatabase.getInstance().reference.child("Doctor_Details").child(prob!!)
-
-
-
     }
 
     private fun filter(text: String) {
