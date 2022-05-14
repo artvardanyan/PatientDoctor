@@ -21,16 +21,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.patient.setOnClickListener {
             val intent = Intent(this@MainActivity, PatientRegistration::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
 
         binding.doctor.setOnClickListener {
             val intent = Intent(this@MainActivity, DoctorRegistration::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

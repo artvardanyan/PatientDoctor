@@ -55,7 +55,6 @@
     <string name="date_20_02_2018">Date: 20/02/2018</string>
     <string name="select_date">Select Date</string>
     <string name="location">Location</string>
-    <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
     <string name="signout">SignOut</string>
     <string name="no_internet_connection_available">No Internet Connection Available</string>
@@ -72,4 +71,13 @@
     <string name="no_events_to_display">No Events to Display</string>
     <string name="welcome_message">Welcome</string>
     <string name="enter_pin">Enter PIN</string>
+    <string name="patient_name">Patient Name</string>
+    <string name="patient_id">Patient ID</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="age">Age</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone</string>
+    <string name="submit">Submit</string>
 </resources>

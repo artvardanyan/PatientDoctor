@@ -124,8 +124,4 @@ class DoctorRegistration : AppCompatActivity(), AdapterView.OnItemSelectedListen
         }
         return super.onOptionsItemSelected(item)
     }
-
-    companion object {
-        var i = 1
-    }
 }

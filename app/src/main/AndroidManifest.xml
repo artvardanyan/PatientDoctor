@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PatientDoctor">
         <activity android:name=".activities.PatientRegistration" />
-        <activity android:name=".activities.SplashScreenActivity" />
         <activity android:name=".activities.DoctorsListActivity" />
         <activity android:name=".activities.DoctorImageSelectedActivity" />
         <activity android:name=".activities.PatientActivity" />

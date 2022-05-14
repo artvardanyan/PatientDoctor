@@ -2,6 +2,7 @@ package com.insta.patientdoctor.viewmodel
 
 import android.content.Context
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,7 +17,7 @@ class PatientViewModel : ViewModel() {
 
     private lateinit var db: ClinicInfo
      val _listUsers = MutableLiveData<List<PatientDetails>>()
-    //val listUsers: LiveData<List<Patient>> = _listUsers
+//   val listUsers: LiveData<List<PatientDetails>> = _listUsers
 
     fun createDataBase(context: Context) {
         db = Room.databaseBuilder(context, ClinicInfo::class.java, USER_DATABASE).fallbackToDestructiveMigration().build()

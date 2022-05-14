@@ -6,23 +6,18 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.MenuItem
-import android.view.View
 import android.webkit.MimeTypeMap
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.insta.patientdoctor.R
+import com.insta.patientdoctor.constants.Constants.PICK_IMAGE_REQUEST
 import com.insta.patientdoctor.databinding.ActivityDoctorImageSelectedBinding
 import java.io.IOException
 import java.util.*
 
-const val PICK_IMAGE_REQUEST = 22
 
 class DoctorImageSelectedActivity : AppCompatActivity() {
 
