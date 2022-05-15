@@ -32,9 +32,9 @@ class PatientRegistration : AppCompatActivity(), AdapterView.OnItemSelectedListe
         viewModel.createDataBase(this)
 
         viewModel._listUsers.observe(this, {
-            if (it != null) {
-                // put your logic here
-            }
+//            if (it != null) {
+//
+//            }
         })
 
         if (supportActionBar != null) {
@@ -51,7 +51,7 @@ class PatientRegistration : AppCompatActivity(), AdapterView.OnItemSelectedListe
             "Cardiology",
             "Oncology",
             "Dental Medicine",
-            "Opthamology",
+            "Ophthalmology",
             "Orthopaedics"
         )
 
