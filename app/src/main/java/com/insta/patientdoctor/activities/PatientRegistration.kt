@@ -84,9 +84,7 @@ class PatientRegistration : AppCompatActivity(), AdapterView.OnItemSelectedListe
                 a.isEmpty() -> {
                     binding.age.error = "Please enter Age"
                 }
-            }
 
-            when {
                 add.isEmpty() -> {
                     binding.address.error = "Please enter Address"
                 }
